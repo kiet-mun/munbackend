@@ -26,6 +26,11 @@ app.use(limiter);
 app.set("trust proxy", 1);
 
 app.use("/api/register", registerRoute);
+app.use("/ping", (req, res) => {
+    return res.status(200).json({
+      message: "Server Alive",
+    });
+});
 
 const PORT = process.env.PORT || 5000;
 
